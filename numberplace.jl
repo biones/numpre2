@@ -175,11 +175,13 @@ function insert_and_propagete(bord::Bord, p, x)
     bord.bord_kouho[p] = [x]
     bord.bord[p[1],p[2]] = x
     bord.count_filled += 1
+    #=
     for sv in values
         if !eliminate(bord, p, sv)
             return false
         end
     end
+    =#
     
     for sib in include_block(bord, p)
         if sib != p   
